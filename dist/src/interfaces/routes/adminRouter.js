@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const AdminController_1 = __importDefault(require("../../application/controller/AdminController"));
+const AdminUseCase_1 = __importDefault(require("../../application/AdminUseCase"));
+const AdminRepository_1 = __importDefault(require("../../infrastructure/AdminRepository"));
+const UserModel_1 = __importDefault(require("../../infrastructure/UserModel"));
+const router = express_1.default.Router();
+const adminRepo = new AdminRepository_1.default(UserModel_1.default);
+const adinUsercase = new AdminUseCase_1.default(adminRepo);
+const adminController = new AdminController_1.default(adinUsercase);
+router.get("/admin", adminController.getAdminPage);
+router.get("/adminDashboard", adminController.getAdminDashboard);
+router.post("/postAdminDashboard", adminController.postAdminDashboard);
+router.get("/adminCreateUser", adminController.getCreateUser);
+router.post('/addUser', adminController.addUser);
+router.post('/editUser/:id', adminController.editUser);
+router.get('/deleteUser/:id', adminController.deleteUser);
+router.post('/searchUser', adminController.adminSearch);
+router.get('/adminLogout', adminController.adminLogout);
+exports.default = router;

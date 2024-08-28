@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #16213e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #e94560;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #0f3460;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #533483;
+            transform: translateY(-2px);
+        }
+
+        .login-container .alert {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: none; /* Initially hidden, you can show this dynamically */
+        }
+
+        .login-container a {
+            text-decoration: none;
+            color: #e94560;
+            display: block;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .login-container a:hover {
+            color: #f39c12;
+        }
+
+        .login-container .separator {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .login-container .admin-login-button {
+            background-color: #533483;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-container .admin-login-button:hover {
+            background-color: #342a6b;
+            transform: translateY(-2px);
+        }
+
+        .login-container .admin-login-button:active {
+            background-color: #2a2454;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+
+        <div class="alert">
+            <!-- Alert message goes here -->
+        </div>
+
+        <form id="adminLoginForm" action="/postAdminDashboard" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="separator">
+            <p>(or)</p>
+        </div>
+
+        <a class="admin-login-button" href="/login">User Login</a>
+    </div>
+
+</body>
+
+</html>
